@@ -33,16 +33,16 @@ Your gitea URL needs to be setup:
 Installation
 ============
 
-Like a lot of Go software, gitea is distributed as a single binary. Download Gitea's latests `release <https://github.com/go-gitea/gitea/releases/latest>`_,
+Like a lot of Go software, gitea is distributed as a single binary. Download it,
 verify the checksum specified in the respective ``.sha256`` file and finally
 make sure that the file can be executed.
 
 ::
 
   [isabell@stardust ~]$ mkdir ~/gitea
-  [isabell@stardust ~]$ wget -O gitea/gitea https://github.com/go-gitea/gitea/releases/download/v42.0.0/gitea-42.0.0-linux-amd64.sha256
-  Resolving dl.gitea.io (github.com)... 2400:cb00:2048:1::681b:8e9b, 2400:cb00:2048:1::681b:8f9b, 104.27.142.155, ...
-  Connecting to dl.gitea.io (github.com)|2400:cb00:2048:1::681b:8e9b|:443... connected.
+  [isabell@stardust ~]$ wget -O gitea/gitea https://dl.gitea.io/gitea/42.23.11/gitea-42.23.11-linux-amd64
+  Resolving dl.gitea.io (dl.gitea.io)... 2400:cb00:2048:1::681b:8e9b, 2400:cb00:2048:1::681b:8f9b, 104.27.142.155, ...
+  Connecting to dl.gitea.io (dl.gitea.io)|2400:cb00:2048:1::681b:8e9b|:443... connected.
   HTTP request sent, awaiting response... 200 OK
   Length: 52960072 (51M) [application/octet-stream]
   Saving to: gitea/gitea’
@@ -68,9 +68,14 @@ Since Gitea uses its own webserver, you need to find a free port and bind your a
 Change the configuration
 ------------------------
 
-You need to create a new config file at ``~/gitea/custom/conf/app.ini`` to specify the
-desired port, domain and disable public registration:
+You need to create the custom config directory 
+::
 
+ [isabell@stardust ~]$ mkdir -p ~/gitea/custom/conf/
+ [isabell@stardust ~]$ 
+
+and a new config file at ``~/gitea/custom/conf/app.ini`` to specify the
+desired port, domain and disable public registration:
 ::
 
   [server]
