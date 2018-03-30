@@ -130,8 +130,24 @@ Tell ``supervisord`` to refresh its configuration and start the service:
 
 If it's not in state RUNNING, check your configuration.
 
-Finishing installation
-======================
+Setup database
+------------
+
+Create a database for gitea;
+
+.. warning:: Replace ``<username>`` with your username!
+
+.. code-block:: ini
+
+  [isabell@stardust ~]$mysql -e "CREATE DATABASE <username>_gitea"
+  [isabell@stardust ~]
+
+In our example this would be:
+
+.. code-block:: ini
+
+  [isabell@stardust ~]$mysql -e "CREATE DATABASE isabell_gitea"
+  [isabell@stardust ~]
 
 Point your browser to your gitea URL and finish the installation.
 
